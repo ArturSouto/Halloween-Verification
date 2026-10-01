@@ -167,84 +167,32 @@
   }
   .deadline b{color:var(--yellow);font-weight:400}
 
-  label.field{display:block;margin-bottom:20px}
-  .field > span.t{display:block;font-family:"Caveat Brush",cursive;font-size:24px;color:var(--cream);margin-bottom:6px}
-  .field > span.t i{font-style:normal;color:var(--muted);font-family:"Patrick Hand";font-size:17px}
-  input[type=text], textarea{
-    width:100%;
-    background:#0f0c12;
-    color:var(--cream);
-    border:2px solid rgba(255,255,255,.12);
-    border-radius:14px;
-    padding:13px 16px;
-    font:inherit;
-    transition:border-color .15s, box-shadow .15s;
+  /* ---------- convite / grupo ---------- */
+  .steps{list-style:none;counter-reset:s;display:grid;gap:12px;margin:0 0 26px}
+  .steps li{
+    counter-increment:s;display:flex;gap:14px;align-items:center;
+    background:#0f0c12;border:1.5px solid rgba(255,255,255,.08);
+    border-radius:14px;padding:12px 16px;font-size:20px;
   }
-  textarea{min-height:84px;resize:vertical}
-  input::placeholder, textarea::placeholder{color:#6f6577}
-  input:focus, textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,122,26,.18)}
-  .invalid{border-color:#ff5a5a !important}
-  .err{color:#ff8a8a;font-size:17px;margin-top:4px;display:none}
-  .err.show{display:block}
-
-  .choice{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
-  .choice input{position:absolute;opacity:0;pointer-events:none}
-  .choice label{
-    cursor:pointer;text-align:center;
-    padding:16px 10px;border-radius:16px;
-    border:2px solid rgba(255,255,255,.12);
-    background:#0f0c12;
-    font-family:"Caveat Brush",cursive;font-size:26px;
-    transition:.15s;
+  .steps li::before{
+    content:counter(s);flex:none;width:36px;height:36px;border-radius:50%;
+    background:var(--orange);color:#1a1020;
+    font-family:"Permanent Marker",cursive;font-size:20px;
+    display:grid;place-items:center;
   }
-  .choice label:hover{border-color:rgba(255,255,255,.3)}
-  .choice input:focus-visible + label{box-shadow:0 0 0 4px rgba(255,122,26,.3)}
-  .choice input[value="sim"]:checked + label{background:rgba(255,122,26,.16);border-color:var(--orange);color:var(--orange)}
-  .choice input[value="nao"]:checked + label{background:rgba(178,102,255,.16);border-color:var(--purple);color:var(--purple)}
-
-  .extra{display:none}
-  .extra.show{display:block;animation:fade .3s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-
-  .check{display:flex;align-items:center;gap:12px;margin-bottom:14px;cursor:pointer;font-size:21px}
-  .check input{width:22px;height:22px;accent-color:var(--pink)}
-  #acompNome{display:none;margin-bottom:20px}
-  #acompNome.show{display:block}
-
-  button.btn{
-    width:100%;
-    border:none;cursor:pointer;
-    background:var(--purple);color:#1a1020;
-    font-family:"Permanent Marker",cursive;font-size:28px;
-    padding:16px 20px;border-radius:14px;
+  a.cta{
+    display:block;text-align:center;text-decoration:none;
+    background:#25d366;color:#06260f;
+    font-family:"Permanent Marker",cursive;font-size:clamp(24px,5vw,30px);
+    padding:18px 20px;border-radius:14px;
     transform:rotate(-.6deg);
-    box-shadow:0 6px 0 #6f35b3;
+    box-shadow:0 6px 0 #158a43;
     transition:transform .1s, box-shadow .1s;
   }
-  button.btn:hover{transform:rotate(-.6deg) translateY(-2px);box-shadow:0 8px 0 #6f35b3}
-  button.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #6f35b3}
-  button.btn.wa{background:#25d366;box-shadow:0 6px 0 #158a43;text-decoration:none;display:block;text-align:center}
-  button.btn.wa:hover{box-shadow:0 8px 0 #158a43}
+  a.cta:hover{transform:rotate(-.6deg) translateY(-2px);box-shadow:0 8px 0 #158a43}
+  a.cta:active{transform:translateY(4px);box-shadow:0 2px 0 #158a43}
+  a.cta:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
   .hint{text-align:center;color:var(--muted);font-size:17px;margin-top:16px}
-
-  /* ---------- sucesso ---------- */
-  #success{display:none;text-align:center}
-  #success.show{display:block;animation:fade .4s ease}
-  #success .big{font-family:"Permanent Marker",cursive;font-size:clamp(34px,7vw,52px);color:var(--orange);line-height:1.05}
-  #success p{margin:12px 0}
-  .warn{
-    background:rgba(245,185,58,.1);
-    border:2px dashed var(--yellow);
-    border-radius:14px;padding:14px 16px;margin:18px 0 22px;
-    color:var(--cream);font-size:19px;
-  }
-  .warn b{color:var(--yellow);font-weight:400}
-  .resumo{
-    text-align:left;background:#0f0c12;border-radius:14px;padding:14px 18px;margin:16px 0 22px;
-    font-size:18px;color:var(--muted);white-space:pre-wrap;
-    border:1.5px solid rgba(255,255,255,.08);
-  }
-  .linkbtn{background:none;border:none;color:var(--purple);font:inherit;text-decoration:underline;cursor:pointer;margin-top:16px}
 
   footer{text-align:center;padding:44px 0 56px;color:var(--muted);font-size:18px}
   footer span{color:var(--orange)}
@@ -351,7 +299,7 @@
     </div>
     <div class="note">
       <span class="tag t-pk">PODE LEVAR NAMORADO(A)!</span>
-      <p>É só me confirmar também!</p>
+      <p>É só avisar no grupo também!</p>
     </div>
     <div class="note">
       <span class="tag t-ye">VAMOS DIVIDIR</span>
@@ -362,50 +310,18 @@
   <!-- ============ RSVP ============ -->
   <main>
     <section class="rsvp" id="rsvp">
-      <svg class="float" style="left:-14px;top:-34px;width:68px;--r:-8deg" aria-hidden="true"><use href="#ghost"/></svg>
+      <svg class="float" style="left:-10px;top:-38px;width:52px;--r:-8deg" aria-hidden="true"><use href="#ghost"/></svg>
 
-      <div id="formView">
-        <h2>Confirme sua <em>presença</em></h2>
-        <p class="deadline">Até <b>20/10</b>, pois precisamos dividir os valores.</p>
+      <h2>Entre no <em>grupo</em> da festa</h2>
+      <p class="deadline">Confirme sua presença lá até <b>20/10</b>, pois precisamos dividir os valores.</p>
 
-        <form id="form" novalidate>
-          <label class="field">
-            <span class="t">Seu nome</span>
-            <input type="text" id="nome" placeholder="Como a gente te chama?" autocomplete="name" maxlength="60">
-            <div class="err" id="nomeErr">Preciso do seu nome para saber quem é quem.</div>
-          </label>
+      <ol class="steps">
+        <li>Toque no botão e entre no grupo do WhatsApp</li>
+        <li>Avise no grupo que você vai (e se vai levar namorado(a))</li>
+      </ol>
 
-          <span class="field"><span class="t" style="display:block;font-family:'Caveat Brush',cursive;font-size:24px;margin-bottom:6px">Você vem?</span></span>
-          <div class="choice" role="radiogroup" aria-label="Você vem?">
-            <input type="radio" name="vai" id="vaiSim" value="sim">
-            <label for="vaiSim">Vou! 🎃</label>
-            <input type="radio" name="vai" id="vaiNao" value="nao">
-            <label for="vaiNao">Não consigo 😢</label>
-          </div>
-          <div class="err" id="vaiErr" style="margin:-14px 0 18px">Escolha uma das opções.</div>
-
-          <div class="extra" id="extraSim">
-            <label class="check">
-              <input type="checkbox" id="temAcomp">
-              <span>Vou levar namorado(a)</span>
-            </label>
-            <input type="text" id="acompNome" placeholder="Nome do(a) acompanhante" maxlength="60">
-          </div>
-
-          <button type="submit" class="btn" id="enviar">Confirmar pelo WhatsApp</button>
-          <p class="hint">Ao clicar, o WhatsApp abre com a mensagem pronta. É só apertar enviar.</p>
-        </form>
-      </div>
-
-      <div id="success">
-        <div class="big" id="sucTitulo">Quase lá! 👻</div>
-        <div class="warn">
-          <b>Atenção:</b> sua confirmação só vale depois que você <b>enviar a mensagem</b> no WhatsApp. Se ele não abriu, use o botão abaixo.
-        </div>
-        <div class="resumo" id="resumo"></div>
-        <a class="btn wa" id="waLink" href="#" target="_blank" rel="noopener" style="border-radius:14px;padding:16px 20px;font-family:'Permanent Marker',cursive;font-size:26px;color:#06260f;transform:rotate(-.6deg)">Abrir WhatsApp e enviar</a>
-        <button type="button" class="linkbtn" id="voltar">Corrigir alguma informação</button>
-      </div>
+      <a class="cta" href="https://chat.whatsapp.com/Gl2ypPkkcZI1kIpMdqDPsr" target="_blank" rel="noopener">Entrar no grupo 🎃</a>
+      <p class="hint">Vai abrir o WhatsApp. Basta entrar e avisar lá.</p>
     </section>
   </main>
 
@@ -415,16 +331,8 @@
 </div>
 
 <script>
-  /* =================================================================
-     CONFIGURAÇÃO — edite só estas duas linhas
-     ================================================================= */
-  // Número do WhatsApp de quem recebe as confirmações: só dígitos,
-  // com código do país + DDD. Exemplo: "5581912345678"
-  const WHATSAPP_NUMBER = "5581996008461";
-
   // Data/hora da festa (ano, mês-1, dia, hora, minuto)
   const FESTA = new Date(2026, 9, 31, 19, 0, 0);
-  /* ================================================================= */
 
   const $ = (id) => document.getElementById(id);
 
@@ -448,82 +356,6 @@
       `<div><b>${p(s)}</b><span>seg</span></div>`;
   }
   tick(); setInterval(tick, 1000);
-
-  // ---------- campos condicionais ----------
-  const radios = document.querySelectorAll('input[name="vai"]');
-  radios.forEach(r => r.addEventListener("change", () => {
-    $("extraSim").classList.toggle("show", $("vaiSim").checked);
-    $("vaiErr").classList.remove("show");
-  }));
-  $("temAcomp").addEventListener("change", e => {
-    $("acompNome").classList.toggle("show", e.target.checked);
-    if (e.target.checked) $("acompNome").focus();
-  });
-
-  // ---------- montar mensagem ----------
-  function montarMensagem(){
-    const nome = $("nome").value.trim();
-    const vai = $("vaiSim").checked;
-    const linhas = [];
-    linhas.push("🎃 *Festa à Fantasia · 31/10*");
-    linhas.push("");
-    linhas.push("Nome: " + nome);
-    if (!vai){
-      linhas.push("Presença: ❌ Infelizmente não consigo ir");
-    } else {
-      linhas.push("Presença: ✅ Confirmada!");
-      const acomp = $("temAcomp").checked ? $("acompNome").value.trim() : "";
-      if ($("temAcomp").checked) linhas.push("Acompanhante: " + (acomp || "sim (nome a confirmar)"));
-    }
-    return linhas.join("\n");
-  }
-
-  // ---------- enviar ----------
-  $("form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    let ok = true;
-
-    const nomeOk = $("nome").value.trim().length >= 2;
-    $("nome").classList.toggle("invalid", !nomeOk);
-    $("nomeErr").classList.toggle("show", !nomeOk);
-    if (!nomeOk) ok = false;
-
-    const escolheu = $("vaiSim").checked || $("vaiNao").checked;
-    $("vaiErr").classList.toggle("show", !escolheu);
-    if (!escolheu) ok = false;
-
-    if (!ok){
-      (nomeOk ? $("vaiSim") : $("nome")).scrollIntoView({behavior:"smooth", block:"center"});
-      return;
-    }
-
-    const msg = montarMensagem();
-    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
-
-    $("resumo").textContent = msg.replace(/\*/g, "");
-    $("waLink").href = url;
-    $("sucTitulo").textContent = $("vaiSim").checked ? "Quase lá! 👻" : "Poxa, vai fazer falta! 💜";
-
-    $("formView").style.display = "none";
-    $("success").classList.add("show");
-    $("rsvp").scrollIntoView({behavior:"smooth", block:"start"});
-
-    if (WHATSAPP_NUMBER === "5500000000000"){
-      $("resumo").textContent += "\n\n⚠️ (Aviso do desenvolvedor: o número do WhatsApp ainda não foi configurado no código.)";
-    } else {
-      window.open(url, "_blank", "noopener");
-    }
-  });
-
-  $("voltar").addEventListener("click", () => {
-    $("success").classList.remove("show");
-    $("formView").style.display = "block";
-  });
-
-  $("nome").addEventListener("input", () => {
-    $("nome").classList.remove("invalid");
-    $("nomeErr").classList.remove("show");
-  });
 </script>
 </body>
 </html>
